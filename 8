@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Video;
+
+public class SpacemanController : MonoBehaviour
+{
+    Animator animator;
+    AudioSource audioSource;
+   public VideoPlayer videoplayer;
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator=GetComponent<Animator>();
+        audioSource=GetComponent<AudioSource>();
+       
+    }
+    public void MakeJump()
+    {
+        audioSource.Play();
+        animator.SetTrigger("Jump");
+        videoplayer.Play();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+
+
