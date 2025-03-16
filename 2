@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using UnityEngine.UI;
+
+public class ChangeProperties : MonoBehaviour
+{
+    public Renderer ObjectRenderer;  // Reference to the Cube's Renderer
+    
+    public Texture[] textures;  // Array of textures
+    public Material[] materials;  // Array of materials
+
+    private int colorIndex = 0;
+    private int textureIndex = 0;
+    private int materialIndex = 0;
+
+    void Start()
+    {
+        // Ensure the Renderer is assigned
+        if (ObjectRenderer == null)
+        {
+            ObjectRenderer = GetComponent<Renderer>();
+        }
+    }
+
+    public void ChangeColor()
+    {
+       
+        ObjectRenderer.material.color = Random.ColorHSV();
+    }
+
+    public void ChangeTexture()
+    {
+        if (textures.Length == 0) return;
+        //textureIndex = (textureIndex + 1) % textures.Length;
+        ObjectRenderer.material.mainTexture = textures[Random.Range(0,textures.Length)];
+    }
+
+    public void ChangeMaterial()
+    {
+        if (materials.Length == 0) return;
+        //materialIndex = (materialIndex + 1) % materials.Length;
+        ObjectRenderer.material = materials[Random.Range(0,materials.Length)];
+    }
+}
