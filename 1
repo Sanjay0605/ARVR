@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Geotransform : MonoBehaviour
+{
+    public float moveSpeed = 5f;
+    public float rotateSpeed = 100f;
+    public float scaleSpeed = 0.5f;
+
+    void Start()
+    {
+        Debug.Log("Use keyboard and mouse");
+    }
+
+    void Update()
+    {
+        //move
+       float moveX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime; 
+       float moveZ = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime; 
+       transform.Translate(moveX,0,moveZ);
+
+       //rotate
+       if(Input.GetKey(KeyCode.Q))
+       {
+        transform.Rotate(Vector3.up, -rotateSpeed*Time.deltaTime);
+       }
+       if(Input.GetKey(KeyCode.E))
+       {
+        transform.Rotate(Vector3.up, rotateSpeed*Time.deltaTime);
+       }
+
+      //scale
+      if(Input.GetKey(KeyCode.R))
+      {
+        transform.localScale +=Vector3.one*scaleSpeed*Time.deltaTime;
+      }
+      if(Input.GetKey(KeyCode.F))
+      {
+        transform.localScale -=Vector3.one*scaleSpeed*Time.deltaTime;
+      }
+    }
+}
