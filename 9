@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SpacemanController : MonoBehaviour
+public class Prog9 : MonoBehaviour
 {
     public float moveSpeed=10f;
     public float rotationSpeed=5f;
@@ -61,7 +61,7 @@ public class SpacemanController : MonoBehaviour
        }
 
     }
-    
+   
         private void OnTriggerEnter(Collider other)
      {
         if(other.tag == "Collectibles")
@@ -90,6 +90,6 @@ public class SpacemanController : MonoBehaviour
     {
         GUILayout.Label($"Score: {score}");
         GUILayout.Label($"Time Left: {GameTime}");
-        
+       
     }
 }
